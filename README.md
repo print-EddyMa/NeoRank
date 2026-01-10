@@ -17,7 +17,7 @@ NeoRank is a machine learning pipeline that predicts neoantigen immunogenicity u
 - **Accessible Infrastructure**: Works with basic lab equipment (~$100K vs $1.5M+ sequencers)
 - **Universal Applicability**: Validated across cancer, TB, HIV, and COVID-19 datasets
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -56,7 +56,7 @@ print(results)
 python scripts/train_model.py --config configs/default_config.yaml
 ```
 
-## 📚 Documentation
+## Documentation
 
 - [Installation Guide](docs/installation.md)
 - [Usage Guide](docs/usage_guide.md)
@@ -64,7 +64,7 @@ python scripts/train_model.py --config configs/default_config.yaml
 - [API Reference](docs/api_reference.md)
 - [FAQ](docs/FAQ.md)
 
-## 🔬 Scientific Background
+## Scientific Background
 
 ### The Problem
 
@@ -92,7 +92,7 @@ NeoRank demonstrates that **peptide features and HLA typing alone are sufficient
 - Opens access to millions of peptide/HLA datasets
 - Accelerates development of personalized cancer vaccines
 
-## 📖 Citation
+## Citation
 
 If you use NeoRank in your research, please cite:
 
