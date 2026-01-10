@@ -7,14 +7,7 @@
 
 NeoRank is a machine learning pipeline that predicts neoantigen immunogenicity using only peptide sequences and HLA typing—achieving clinical-grade performance (AUROC: 0.824 ± 0.018) at ~10% of the cost of current multi-omics tools.
 
-## Key Features
-
-- **Minimal Input Requirements**: Only peptide sequences and HLA typing needed
-- **Clinical-Grade Performance**: AUROC 0.824, competitive with tools requiring expensive WES/RNA-seq
-- **Cost-Effective**: ~$300 per patient vs $1,000-$5,000 for multi-omics approaches
-- **Fast Processing**: 2-3 days vs 2-6 weeks for traditional pipelines
-- **Accessible Infrastructure**: Works with basic lab equipment (~$100K vs $1.5M+ sequencers)
-- **Universal Applicability**: Validated across cancer, TB, HIV, and COVID-19 datasets
+In 2024, cancer killed 9.7 million people worldwide, with 70% of deaths occurring at late stages where tumors resist standard treatment options. Immunotherapies rely on tumor-specific neoantigens to train the immune system to recognize and attack tumors. This approach has shown promising therapeutic potential in late-stage cancers, a 2023 pancreatic cancer trial prevented recurrence in 50% of the patients. However, neoantigen selection tools require extensive sequencing methods costing $1,000-$5,000 per patient and require equipment worth $500k-$1.5M; this limits access to ~5% of global laboratories. NeoRank uses Random Forest classifiers designed for only two inputs: peptide sequences and HLA-typing, methods that can be obtained through basic laboratory techniques in days, typically costing ~$300. The model was trained on 6,757 cancer epitopes and 15,929 T-cell assays from the Immune Epitope Database and extracts 41+ features from peptide and binding features to predict neoantigen immunogenicity. NeoRank was evaluated through 10-fold cross-validation and achieved AUROC 0.824 ± 0.018 (ability to distinguish between positive/negative classes), comparable to clinical-grade tools like NeoDisc, NeoTImmuML, and imNEO. When evaluated on tuberculosis, HIV, and COVID-19 datasets, the model achieved AUROC 0.0796-0.894, demonstrating strong universal immunogenicity prediction. NeoRank challenges the belief that expensive multi-omics data is necessary for accurate neoantigen prediction and enables resource-limited institutions worldwide to contribute to cancer vaccine development, one of the most rapidly developing treatments that may lead to the very first cures for cancer.
 
 ## Quick Start
 
@@ -73,23 +66,7 @@ python scripts/train_model.py --config configs/default_config.yaml
 
 ### The Solution
 
-NeoRank demonstrates that **peptide features and HLA typing alone are sufficient** for accurate neoantigen prediction by:
-
-1. **Mutation Features (55% of predictive power)**
-   - Peptide length, amino acid composition
-   - Hydrophobicity, charge, aromatic content
-   - Polarity and structural properties
-
-2. **Binding Features (45% of predictive power)**
-   - NetMHCpan-predicted HLA binding affinity
-   - Anchor residue analysis (P2, P9)
-   - Strong/weak binder classification
-
-### Real-World Impact
-
-- Enables 50% of global labs (vs current 5%) to conduct neoantigen research
-- Opens access to millions of peptide/HLA datasets
-- Accelerates development of personalized cancer vaccines
+NeoRank demonstrates that **peptide features and HLA typing alone are sufficient** for accurate neoantigen prediction.
 
 ## Citation
 
@@ -122,13 +99,6 @@ Raleigh Charter High School
 Cary, North Carolina, USA  
 Email: ma.eddy.work@gmail.com
 
-## Roadmap
-
-- [ ] MHC Class II support (CD4+ T cells)
-- [ ] Expanded HLA allele coverage
-- [ ] Web-based interface
-- [ ] Integration with clinical pipelines
-- [ ] Multi-species support
 
 ---
 
