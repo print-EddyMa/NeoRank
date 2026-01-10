@@ -17,7 +17,7 @@ In 2024, cancer killed 9.7 million people worldwide, with 70% of deaths occurrin
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/NeoRank.git
+git clone https://github.com/Print-EddyMa/NeoRank.git
 cd NeoRank
 
 # Create conda environment
