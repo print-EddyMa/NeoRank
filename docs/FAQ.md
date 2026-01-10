@@ -93,26 +93,11 @@ Typical: 1-5 seconds per 100 peptides.
 
 Different inputs → different predictions. NeoRank focuses on what's accessible to resource-limited labs.
 
-### Q14: Can I use pre-trained models?
-
-**A:** Currently, we recommend training on your own IEDB subset. Pre-trained models will be provided in future releases.
-
 ---
 
 ## Technical Questions
 
-### Q15: How does NeoRank compare to NetMHCpan?
-
-**A:**
-
-| Aspect | NetMHCpan | NeoRank |
-|--------|-----------|---------|
-| Input | Peptide + HLA | Peptide + HLA |
-| Method | Binding affinity only | Random Forest (100+ features) |
-| Output | Affinity (nM) | Immunogenicity probability |
-| AUROC | ~0.65 | ~0.824 |
-
-### Q16: What's the Random Forest architecture?
+### Q14: What's the Random Forest architecture?
 
 **A:**
 - **Trees**: 2,000
@@ -123,7 +108,7 @@ Different inputs → different predictions. NeoRank focuses on what's accessible
 
 Tuned via cross-validation on IEDB.
 
-### Q17: How do I extract features without training?
+### Q15: How do I extract features without training?
 
 **A:**
 
@@ -135,11 +120,7 @@ df_with_features = extractor.extract_mutation_features(df)
 df_with_binding = extractor.extract_binding_features(df)
 ```
 
-### Q18: What's the reproducibility guarantee?
-
-**A:** Set `RANDOM_SEED = 42` in config. Results are reproducible across runs on the same hardware with the same data.
-
-### Q19: How are missing values handled?
+### Q16: How are missing values handled?
 
 **A:**
 - **Binding affinity**: Default to 500 nM (non-binder)
@@ -150,23 +131,11 @@ df_with_binding = extractor.extract_binding_features(df)
 
 ## Performance & Scaling
 
-### Q20: Can I batch process large datasets?
-
-**A:** Yes, use `predictor.predict_batch()`:
-
-```python
-results = predictor.predict_batch(
-    peptides=peptide_list,
-    hla_types=hla_list,
-    batch_size=100  # Adjust based on memory
-)
-```
-
-### Q21: How much memory does NeoRank need?
+### Q17: How much memory does NeoRank need?
 
 **A:** ~500 MB for model + data. Can process 100K peptides with standard laptop.
 
-### Q22: Can I parallelize predictions?
+### Q18: Can I parallelize predictions?
 
 **A:** Yes. Model is saved as pickle, can load in multiple processes. NetMHCpan is inherently parallelizable.
 
@@ -174,7 +143,7 @@ results = predictor.predict_batch(
 
 ## Scientific Questions
 
-### Q23: Why does NeoRank work without RNAseq?
+### Q19: Why does NeoRank work without RNAseq?
 
 **A:** Because mutation (peptide) + binding features explain 55-45% of variance. Key insight: immunogenicity is primarily determined by:
 
@@ -183,25 +152,23 @@ results = predictor.predict_batch(
 
 Gene expression is secondary in many contexts.
 
-### Q24: Is NeoRank validated on other datasets?
+### Q20: Is NeoRank validated on other datasets?
 
 **A:** Trained on IEDB cancer epitopes. Tested on:
 - Internal validation: 10-fold CV
 - Other cancers: Good generalization
 - Viruses (TB, HIV, COVID): Reasonable performance
 
-### Q25: What about off-target effects?
+### Q21: What about off-target effects?
 
 **A:** NeoRank predicts MHC-immunogenicity only. Doesn't assess:
 - T-cell cross-reactivity
 - Tolerance/regulatory T cells
 - Tumor microenvironment factors
 
-Recommended: Use with caution in clinical contexts; validate experimentally.
-
 ---
 
-### Q29: Citing NeoRank
+### Citing NeoRank
 
 **A:** Please cite as:
 
