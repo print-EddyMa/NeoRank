@@ -92,13 +92,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Binding Predictions**: [NetMHCpan 4.2](https://services.healthtech.dtu.dk/services/NetMHCpan-4.1/)
 - **Inspiration**: Research teams advancing personalized cancer immunotherapy
 
-## Contact
+## Author
 
 **Eddy Ma**  
-Raleigh Charter High School  
-Cary, North Carolina, USA  
-Email: ma.eddy.work@gmail.com
-
+North Carolina, USA  
 
 ---
 
