@@ -8,7 +8,7 @@
 
 NeoRank is a machine learning pipeline that predicts neoantigen immunogenicity using only peptide sequences and HLA typing—achieving clinical-grade performance (AUROC: 0.824 ± 0.018) at ~10% of the cost of current multi-omics tools.
 
-## 🎯 Key Features
+## Key Features
 
 - **Minimal Input Requirements**: Only peptide sequences and HLA typing needed
 - **Clinical-Grade Performance**: AUROC 0.824, competitive with tools requiring expensive WES/RNA-seq
@@ -16,17 +16,6 @@ NeoRank is a machine learning pipeline that predicts neoantigen immunogenicity u
 - **Fast Processing**: 2-3 days vs 2-6 weeks for traditional pipelines
 - **Accessible Infrastructure**: Works with basic lab equipment (~$100K vs $1.5M+ sequencers)
 - **Universal Applicability**: Validated across cancer, TB, HIV, and COVID-19 datasets
-
-## 📊 Performance Metrics
-
-| Metric | Score | Std Dev |
-|--------|-------|---------|
-| AUROC | 0.824 | ± 0.018 |
-| AUPRC | 0.XXX | ± 0.XXX |
-| F1-Score | 0.XXX | ± 0.XXX |
-| Brier Score | 0.XXX | ± 0.XXX |
-
-*10-fold stratified cross-validation on 6,757 epitopes from IEDB*
 
 ## 🚀 Quick Start
 
@@ -103,18 +92,6 @@ NeoRank demonstrates that **peptide features and HLA typing alone are sufficient
 - Opens access to millions of peptide/HLA datasets
 - Accelerates development of personalized cancer vaccines
 
-## 🏆 Benchmarking
-
-NeoRank performance compared to existing tools:
-
-| Tool | AUROC | Inputs Required | Cost per Patient |
-|------|-------|----------------|------------------|
-| NeoRank | 0.824 | Peptide + HLA | ~$300 |
-| NeoDisc | 0.83 | WES + RNA-seq | ~$2,500 |
-| NeoTImmuML | 0.82 | WES + RNA-seq + VAF | ~$3,500 |
-| imNEO | 0.84 | Full multi-omics | ~$5,000 |
-| NetMHCpan (baseline) | 0.65 | Peptide + HLA | ~$300 |
-
 ## 📖 Citation
 
 If you use NeoRank in your research, please cite:
@@ -129,28 +106,24 @@ If you use NeoRank in your research, please cite:
 }
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Data Source**: [Immune Epitope Database (IEDB)](https://www.iedb.org)
 - **Binding Predictions**: [NetMHCpan 4.2](https://services.healthtech.dtu.dk/services/NetMHCpan-4.1/)
 - **Inspiration**: Research teams advancing personalized cancer immunotherapy
 
-## 📧 Contact
+## Contact
 
 **Eddy Ma**  
 Raleigh Charter High School  
 Cary, North Carolina, USA  
-Email: [your-email@example.com]
+Email: ma.eddy.work@gmail.com
 
-## 🤝 Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] MHC Class II support (CD4+ T cells)
 - [ ] Expanded HLA allele coverage
@@ -160,4 +133,4 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ---
 
-**Made with ❤️ for accessible cancer research**
+**❤️ For accessible cancer research**
