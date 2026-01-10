@@ -201,31 +201,9 @@ Recommended: Use with caution in clinical contexts; validate experimentally.
 
 ---
 
-## Contributing & Support
+### Q29: Citing NeoRank
 
-### Q26: How can I contribute?
-
-**A:** See [CONTRIBUTING.md](../CONTRIBUTING.md). We welcome:
-- Bug reports
-- Feature requests
-- Code contributions
-- Data improvements
-
-### Q27: How do I report a bug?
-
-**A:** Open an issue on GitHub with:
-- Error message
-- Steps to reproduce
-- Your OS and Python version
-- Minimal example code
-
-### Q28: Is NeoRank actively maintained?
-
-**A:** Yes. Check GitHub for latest updates and issues.
-
-### Q29: Can I cite NeoRank?
-
-**A:** Yes! Please cite as:
+**A:** Please cite as:
 
 ```bibtex
 @software{ma2025neorank,
@@ -237,15 +215,10 @@ Recommended: Use with caution in clinical contexts; validate experimentally.
 }
 ```
 
-### Q30: Is there a mailing list or forum?
-
-**A:** Not yet. Use GitHub Issues for discussions. Email: [your-email@example.com]
 
 ---
 
 ## Additional Resources
 
-- **GitHub Repository**: https://github.com/yourusername/NeoRank
 - **IEDB**: https://www.iedb.org
 - **NetMHCpan**: https://services.healthtech.dtu.dk/services/NetMHCpan-4.1/
-- **Related Paper**: (Citation pending)
