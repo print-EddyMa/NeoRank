@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![CI](https://github.com/print-EddyMa/NeoRank/actions/workflows/ci.yml/badge.svg)](https://github.com/print-EddyMa/NeoRank/actions/workflows/ci.yml)
+
 
 > **Making cancer immunotherapy research accessible worldwide with a $300 solution**
 
@@ -27,26 +29,37 @@ conda activate neorank
 
 ### Basic Usage
 
+Using the package API (DataFrame-based):
+
 ```python
+import pandas as pd
 from neorank import NeoRankPredictor
 
-# Initialize predictor
+# Load a saved model
 predictor = NeoRankPredictor(model_path='models/neorank_model.pkl')
 
-# Predict immunogenicity
-peptides = ['SIINFEKL', 'KVAELVHFL']
-hla_types = ['HLA-A*02:01', 'HLA-A*02:01']
+# Prepare input DataFrame
+df = pd.DataFrame({
+    'peptide': ['SIINFEKL', 'KVAELVHFL'],
+    'HLA': ['HLA-A*02:01', 'HLA-A*02:01']
+})
 
-results = predictor.predict(peptides, hla_types)
-print(results)
+# Run predictions
+out = predictor.predict_df(df)
+print(out[['peptide', 'HLA', 'immunogenicity_score', 'prediction_label']])
 ```
 
-### Training Your Own Model
+Using the provided CLI script:
 
 ```bash
-# Download IEDB data (see data/raw/download_instructions.md)
-python scripts/train_model.py --config configs/default_config.yaml
+# Train on example data (expects epitope.tsv and tcell.tsv in the folder)
+python scripts/train_neorank.py --folder data/example
+
+# Predict on a CSV file (columns: peptide,HLA)
+python scripts/predict_neorank.py data/example/example_peptides.csv
 ```
+
+Note: `neorank_model.pkl` is saved to `models/` and CV results to `results/` by default.
 
 ## Documentation
 

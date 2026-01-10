@@ -146,62 +146,60 @@ def extract_binding_features(self, df: pd.DataFrame) -> pd.DataFrame:
 
 ---
 
-### NeoRankTrainer Class (Placeholder)
+### NeoRankTrainer Class
 
 ```python
 class NeoRankTrainer:
-    """Train Random Forest model for neoantigen prediction."""
-    
-    def __init__(self, epitope_file: str, tcell_file: str):
-        """Initialize trainer with data paths."""
-    
-    def train(self) -> dict:
-        """Train Random Forest model.
-        
+    """Train Random Forest model for neoantigen prediction.
+
+    Usage:
+        trainer = NeoRankTrainer(epitope_file='data/example/epitope.tsv',
+                                 tcell_file='data/example/tcell.tsv')
+        model_data = trainer.run(save_model_path='models/neorank_model.pkl')
+    """
+
+    def __init__(self, epitope_file: str = None, tcell_file: str = None, config: Config = None):
+        """Initialize trainer with data paths and configuration."""
+
+    def run(self, save_model_path: str = None, save_results_path: str = None) -> dict:
+        """Run the complete training pipeline (preprocessing, feature extraction,
+        cross-validation, final model training and saving).
+
         Returns:
-            Dictionary with training results and metrics
+            A dictionary with keys: 'model', 'scaler', 'features', 'cv_results'
         """
-    
-    def cross_validate(self, n_folds: int = 10) -> dict:
-        """Perform cross-validation.
-        
-        Returns:
-            Dictionary with CV metrics (AUROC, AUPRC, F1, etc.)
-        """
-    
-    def save_model(self, path: str) -> None:
-        """Save trained model to disk."""
 ```
 
 ---
 
-### NeoRankPredictor Class (Placeholder)
+### NeoRankPredictor Class
 
 ```python
 class NeoRankPredictor:
-    """Make predictions with trained NeoRank model."""
-    
-    def __init__(self, model_path: str):
-        """Initialize predictor with trained model."""
-    
-    def predict(self, peptides: List[str], 
-               hla_types: List[str],
-               top_n: int = 20) -> pd.DataFrame:
-        """Predict immunogenicity for peptides.
-        
-        Args:
-            peptides: List of peptide sequences
-            hla_types: List of HLA alleles
-            top_n: Return top N ranked predictions
-            
+    """Make predictions with a trained NeoRank model.
+
+    Usage:
+        predictor = NeoRankPredictor(model_path='models/neorank_model.pkl')
+        out_df = predictor.predict_df(pd.DataFrame({'peptide': ['SIINFEKL'], 'HLA': ['HLA-A*02:01']}))
+        predictor.predict_csv('input.csv', 'output_predictions.csv')
+    """
+
+    def __init__(self, model_path: str = None, config: Config = None):
+        """Initialize predictor by loading a saved model pickle."""
+
+    def predict_df(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Run predictions on a DataFrame with columns ['peptide', 'HLA'].
+
         Returns:
-            DataFrame with predictions and features
+            DataFrame with added columns: 'prediction', 'immunogenicity_score', 'prediction_label'
         """
-    
-    def predict_batch(self, peptides: List[str],
-                     hla_types: List[str],
-                     batch_size: int = 100) -> pd.DataFrame:
-        """Batch predict with efficiency optimizations."""
+
+    def predict_csv(self, input_csv: str, output_csv: str = None) -> str:
+        """Load peptides from CSV, run predictions, and save results to CSV.
+
+        Returns:
+            Path to output CSV file
+        """
 ```
 
 ---
