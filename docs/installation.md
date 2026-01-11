@@ -10,7 +10,8 @@
 ## Step 1: Clone Repository
 
 ```bash
-git clone [https://github.com/yourusername/NeoRank.git] i.e. (https://github.com/print-EddyMa/NeoRank.git)
+git clone [https://github.com/yourusername/NeoRank.git]
+i.e. (https://github.com/print-EddyMa/NeoRank.git)
 cd NeoRank
 ```
 
