@@ -24,7 +24,7 @@ cd NeoRank
 conda env create -f environment.yml
 conda activate neorank
 
-# Install NetMHCpan 4.2 (see tools/netmhcpan_setup.md)
+# Install NetMHCpan 4.2 (external)
 ```
 
 ### Basic Usage
